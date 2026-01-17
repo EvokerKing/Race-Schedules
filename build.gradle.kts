@@ -13,6 +13,10 @@ application {
     mainClass = "tech.gloucestercounty.ApplicationKt"
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 dependencies {
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-netty")
