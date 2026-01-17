@@ -44,8 +44,8 @@ fun imsaSchedule(): Map<String, Map<String, Any>> {
                     LocalDate.parse(j.removeFirst().text(), secondFormat).toString() to j.map { k ->
                         listOf(
                             k.select("div.event-name")[0].text(),
-                            LocalTime.parse(k.select("div.event-time")[0].text().split(" to ")[0], thirdFormat).toString()
-                        )
+                            LocalTime.parse(k.select("div.event-time")[0].text().split(" to ")[0], thirdFormat).toString(),
+                            LocalTime.parse(k.select("div.event-time")[0].text().split(" to ")[1].replace(Regex("M .+"), "M"), thirdFormat).toString())
                     }
                 }
             )
